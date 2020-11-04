@@ -25,9 +25,9 @@ namespace ToDo.Repository
             _appcontext.SaveChanges();
         }
 
-        public void Deletar(int id)
+        public void Deletar(Tarefa t)
         {
-            _appcontext.Remove(Pegar(id));
+            _appcontext.Remove(t);
             _appcontext.SaveChanges();
         }
 

@@ -22,10 +22,6 @@ namespace ToDo.Controllers
         public IActionResult Get()
         {
             var listaDeTarefas = _tarefaRepository.Get();
-
-            if (listaDeTarefas == null)
-                return NotFound();
-
             return Ok(listaDeTarefas);
         }
 
@@ -34,21 +30,23 @@ namespace ToDo.Controllers
         public IActionResult Pegar([FromRoute] int id)
         {
             if (id <= 0)
-                return NotFound(
-                    "Tarefa não existe"
-                    );
+                return NotFound();
+
+            var tarefa = _tarefaRepository.Pegar(id);
+
+            if (tarefa == null)
+                return NotFound();
+
             else
-                return Ok(_tarefaRepository.Pegar(id));
+                return Ok(tarefa);
         }
 
         [Route("api/[controller]")]
         [HttpPost]
         public IActionResult Adicionar([FromBody] Tarefa tarefa)
         {
-            if (tarefa == null)
-                return NotFound(
-                    "Insira uma tarefa."
-                    );
+            if (string.IsNullOrEmpty(tarefa.Nome))
+                return BadRequest();
             else
                 _tarefaRepository.Adicionar(tarefa);
             return Ok(tarefa);
@@ -58,19 +56,33 @@ namespace ToDo.Controllers
         [HttpDelete]
         public IActionResult Deletar([FromRoute] int id)
         {
-            if (id != 0)
-                _tarefaRepository.Deletar(id);
-            return Ok();
+            if (id > 0)
+            {
+                var tarefa = _tarefaRepository.Pegar(id);
+
+                if (tarefa == null)
+                {
+                    return BadRequest();
+                }
+                    _tarefaRepository.Deletar(tarefa);
+                    return Ok();
+                    //Se Ok() retornar com parametro conseguimos verificar se o stuatus http é 200
+                    //return Ok(tarefa);
+            } 
+            else
+            {
+                return BadRequest();
+            }
+
+            
         }
 
         [Route("api/[controller]")]
         [HttpPatch]
         public IActionResult Atualizar([FromBody] Tarefa tarefa)
         {
-            if (tarefa == null)
-                return NotFound(
-                    "Tarefa não encontrada"
-                    );
+            if (tarefa.Id <= 0 || string.IsNullOrEmpty(tarefa.Nome))
+                return BadRequest();
             else
                 _tarefaRepository.Atualizar(tarefa);
             return Ok();

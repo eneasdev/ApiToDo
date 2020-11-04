@@ -9,7 +9,7 @@ namespace ToDo.Repository
         Tarefa Pegar(int id);
         List<Tarefa> Get();
         void Atualizar(Tarefa tarefa);
-        void Deletar(int id);
+        void Deletar(Tarefa t);
         
     }
 }
