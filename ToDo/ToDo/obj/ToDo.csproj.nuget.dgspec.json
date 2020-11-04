@@ -1,20 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "E:\\Users\\thiag\\source\\repos\\ApiToDo\\ToDo\\ToDo\\ToDo.csproj": {}
+    "C:\\projetos\\COLABORACAO COM ENEAS\\ApiToDo\\ToDo\\ToDo\\ToDo.csproj": {}
   },
   "projects": {
-    "E:\\Users\\thiag\\source\\repos\\ApiToDo\\ToDo\\ToDo\\ToDo.csproj": {
+    "C:\\projetos\\COLABORACAO COM ENEAS\\ApiToDo\\ToDo\\ToDo\\ToDo.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Users\\thiag\\source\\repos\\ApiToDo\\ToDo\\ToDo\\ToDo.csproj",
+        "projectUniqueName": "C:\\projetos\\COLABORACAO COM ENEAS\\ApiToDo\\ToDo\\ToDo\\ToDo.csproj",
         "projectName": "ToDo",
-        "projectPath": "E:\\Users\\thiag\\source\\repos\\ApiToDo\\ToDo\\ToDo\\ToDo.csproj",
-        "packagesPath": "C:\\Users\\thiag\\.nuget\\packages\\",
-        "outputPath": "E:\\Users\\thiag\\source\\repos\\ApiToDo\\ToDo\\ToDo\\obj\\",
+        "projectPath": "C:\\projetos\\COLABORACAO COM ENEAS\\ApiToDo\\ToDo\\ToDo\\ToDo.csproj",
+        "packagesPath": "C:\\Users\\robson\\.nuget\\packages\\",
+        "outputPath": "C:\\projetos\\COLABORACAO COM ENEAS\\ApiToDo\\ToDo\\ToDo\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\thiag\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\robson\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
