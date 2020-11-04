@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Primitives;
 using ToDo.Models;
 using ToDo.Repository;
 
@@ -20,10 +21,14 @@ namespace ToDo.Controllers
         [HttpGet]
         public IActionResult Get()
         {
-            if(_tarefaRepository.Get() == null || _tarefaRepository.Get().Count == 0)
-                return NotFound(
-                    "Não existe tarefas."
+            string []lista = new[] {""};
+            if (_tarefaRepository.Get() == null) 
+                return StatusCode(100,
+                    "NaoExisteTarefas"
+                    //["Error":"NaoExisteTarefas"]
                     );
+            if (_tarefaRepository.Get().Count == 0)
+                return Ok(lista);
             else
                 return Ok(_tarefaRepository.Get());
         }
